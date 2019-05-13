@@ -2,7 +2,8 @@
 .DS_Store
 
 # intelliJ
-.idea/
+.idea
+.idea/*.xml
 **.iml
 out/
 
