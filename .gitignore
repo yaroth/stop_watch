@@ -3,6 +3,7 @@
 
 # intelliJ
 .idea/
+.idea/vcs.xml
 **.iml
 out/
 
