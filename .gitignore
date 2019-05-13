@@ -2,8 +2,7 @@
 .DS_Store
 
 # intelliJ
-.idea
-.idea/*.xml
+.idea/
 **.iml
 out/
 
@@ -12,4 +11,4 @@ out/
 .project
 
 # compiled binary
-target/
+out/
