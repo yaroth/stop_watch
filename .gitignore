@@ -3,7 +3,7 @@
 
 # intelliJ
 .idea/
-.idea/vcs.xml
+/.idea/vcs.xml
 **.iml
 out/
 
