@@ -29,6 +29,7 @@ public class StopWatch implements EventHandler {
         long millis = ChronoUnit.MILLIS.between(start, now);
         if (millis > 3000) this.state = new Stopped();
         System.out.printf("Some other change");
+        System.out.printf("Some more changes in dev1");
         return millis;
     }
 }
