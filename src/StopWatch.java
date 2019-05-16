@@ -27,6 +27,7 @@ public class StopWatch implements EventHandler {
     public long getTime() {
         LocalDateTime now = LocalDateTime.now();
         long millis = ChronoUnit.MILLIS.between(start, now);
+        System.out.printf("Some other change");
         return millis;
     }
 }
