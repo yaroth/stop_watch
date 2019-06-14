@@ -4,15 +4,14 @@ import javafx.stage.Stage;
 
 /**
  * Created by yann on 23.04.18.<br>
- * Main application class to start the qwixx game.<br>
+ * Main application class to startTime the qwixx game.<br>
  */
 public final class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        State idle = new Idle();
-        StopWatch stopWatch = new StopWatch(idle);
+        StopWatch stopWatch = new StopWatch();
         StopWatchView stopWatchView = new StopWatchView(primaryStage);
         Scene scene = stopWatchView.createScene(stopWatch);
 

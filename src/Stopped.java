@@ -1,12 +1,15 @@
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
-import java.time.temporal.TemporalUnit;
 
 public class Stopped implements State {
 
     private State state;
     private StopWatch stopWatch;
+
+    public Stopped(StopWatch stopWatch) {
+        this.stopWatch = stopWatch;
+    }
 
     @Override
     public void setState(State state) {
@@ -14,29 +17,22 @@ public class Stopped implements State {
     }
 
     @Override
-    public void setStopWatch(StopWatch stopWatch) {
-        this.stopWatch = stopWatch;
-    }
-
-    @Override
     public long getTime() {
-        return ChronoUnit.MILLIS.between(stopWatch.start, stopWatch.end);
+        return ChronoUnit.MILLIS.between(stopWatch.startTime, stopWatch.endTime);
 
     }
 
     @Override
     public void handleEventB1() {
         // stopped -> running
-        long stoppedDurationMillis = Duration.between(stopWatch.end, LocalDateTime.now()).toMillis();
-        this.stopWatch.start = this.stopWatch.start.plus(stoppedDurationMillis, ChronoUnit.MILLIS);
-        this.stopWatch.state = new Running();
-        this.stopWatch.state.setStopWatch(stopWatch);
+        long stoppedDurationMillis = Duration.between(stopWatch.endTime, LocalDateTime.now()).toMillis();
+        this.stopWatch.startTime = this.stopWatch.startTime.plus(stoppedDurationMillis, ChronoUnit.MILLIS);
+        this.stopWatch.state = this.stopWatch.running;
     }
 
     @Override
     public void handleEventB2() {
         // stopped -> idle
-        this.stopWatch.state = new Idle();
-        this.stopWatch.state.setStopWatch(stopWatch);
+        this.stopWatch.state = this.stopWatch.idle;
     }
 }

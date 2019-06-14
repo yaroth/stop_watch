@@ -1,21 +1,19 @@
 
-import java.time.Instant;
 import java.time.LocalDateTime;
 
 public class Idle implements State {
 
     private StopWatch stopWatch;
 
+    public Idle(StopWatch stopWatch) {
+        this.stopWatch = stopWatch;
+    }
 
     @Override
     public void setState(State state) {
         this.stopWatch.state = state;
     }
 
-    @Override
-    public void setStopWatch(StopWatch stopWatch) {
-        this.stopWatch = stopWatch;
-    }
 
     @Override
     public long getTime() {
@@ -25,9 +23,8 @@ public class Idle implements State {
     @Override
     public void handleEventB1() {
         // idle -> running
-        this.stopWatch.start = LocalDateTime.now();
-        this.stopWatch.state = new Running();
-        this.stopWatch.state.setStopWatch(stopWatch);
+        this.stopWatch.startTime = LocalDateTime.now();
+        this.stopWatch.state = this.stopWatch.running;
 
     }
 

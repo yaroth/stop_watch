@@ -5,16 +5,19 @@ import java.time.temporal.ChronoUnit;
 public class StopWatch implements EventHandler {
 
     public State state;
-    public LocalDateTime start;
-    public LocalDateTime lap;
-    public LocalDateTime end;
+    public LocalDateTime startTime;
+    public LocalDateTime lapTime;
+    public LocalDateTime endTime;
 
-    public StopWatch(State state) {
-        this.state = state;
-        // add the stopwatch to the state.
-        this.state.setStopWatch(this);
+    public State running = new Running(this);
+    public State idle = new Idle(this);
+    public State intermediate = new Intermediate(this);
+    public State stopped = new Stopped(this);
+
+
+    public StopWatch() {
+        this.state = idle;
     }
-
 
     @Override
     public void handleEventB1() {
