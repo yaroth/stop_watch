@@ -7,5 +7,7 @@ public interface State extends EventHandler{
 
     void setStopWatch(StopWatch stopWatch);
 
+    long getTime();
+
 }
 

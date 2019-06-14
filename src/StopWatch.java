@@ -6,12 +6,14 @@ public class StopWatch implements EventHandler {
 
     public State state;
     public LocalDateTime start;
+    public LocalDateTime lap;
+    public LocalDateTime end;
 
     public StopWatch(State state) {
         this.state = state;
+        // add the stopwatch to the state.
         this.state.setStopWatch(this);
     }
-
 
 
     @Override
@@ -25,10 +27,6 @@ public class StopWatch implements EventHandler {
     }
 
     public long getTime() {
-        LocalDateTime now = LocalDateTime.now();
-        long millis = ChronoUnit.MILLIS.between(start, now);
-        System.out.printf("Some other change");
-        System.out.printf("Some more changes in dev1");
-        return millis;
+        return state.getTime();
     }
 }
