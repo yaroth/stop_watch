@@ -1,10 +1,14 @@
+package main;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import logic.StopWatch;
+import view.StopWatchView;
 
 /**
  * Created by yann on 23.04.18.<br>
- * Main application class to startTime the qwixx game.<br>
+ * main.Main application class to startTime the qwixx game.<br>
  */
 public final class Main extends Application {
 

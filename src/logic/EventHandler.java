@@ -1,3 +1,4 @@
+package logic;
 
 public interface EventHandler {
 

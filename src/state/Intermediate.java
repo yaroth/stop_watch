@@ -1,18 +1,15 @@
+package state;
+
+import logic.StopWatch;
+import state.State;
+
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
-public class Intermediate implements State {
-
-    private StopWatch stopWatch;
-    private State state;
+public class Intermediate extends State {
 
     public Intermediate(StopWatch stopWatch) {
-        this.stopWatch = stopWatch;
-    }
-
-    @Override
-    public void setState(State state) {
-        this.state = state;
+        super(stopWatch);
     }
 
     @Override
@@ -23,7 +20,7 @@ public class Intermediate implements State {
     @Override
     public void handleEventB1() {
         // intermediate -> running
-        this.stopWatch.state = this.stopWatch.running;
+        this.setStopWatchState(this.stopWatch.running);
 
     }
 
@@ -31,6 +28,6 @@ public class Intermediate implements State {
     public void handleEventB2() {
         // intermediate ->stopped
         this.stopWatch.endTime = LocalDateTime.now();
-        this.stopWatch.state = this.stopWatch.stopped;
+        this.setStopWatchState(this.stopWatch.stopped);
     }
 }

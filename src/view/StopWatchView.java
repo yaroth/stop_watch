@@ -1,3 +1,5 @@
+package view;
+
 import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -7,13 +9,13 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
+import logic.StopWatch;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
 /**
- * Created by yann on 26.02.18.<br>
- * View to either quit a game, setup a new game, load or save a game
+ * Created by yann on 17.6.2019.<br>
  */
 public final class StopWatchView {
 
@@ -52,7 +54,7 @@ public final class StopWatchView {
             @Override public void run() {
                 Platform.runLater(() ->timeLabel.setText(String.valueOf(stopWatch.getTime() / 1000.0)));
             }
-        }, 0L, 100L);
+        }, 0L, 10L);
 
         HBox timeBox = new HBox();
         timeBox.setSpacing(10);
