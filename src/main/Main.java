@@ -1,6 +1,7 @@
 package main;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import logic.StopWatch;
@@ -21,6 +22,11 @@ public final class Main extends Application {
 
         primaryStage.setTitle("Stop Watch");
         primaryStage.setScene(scene);
+        primaryStage.setOnCloseRequest(event -> {
+            Platform.exit();
+            System.exit(0);
+        });
+
         primaryStage.show();
 
     }

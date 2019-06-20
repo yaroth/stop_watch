@@ -52,7 +52,7 @@ public final class StopWatchView {
         Timer t = new Timer();
         t.schedule(new TimerTask() {
             @Override public void run() {
-                Platform.runLater(() ->timeLabel.setText(String.valueOf(stopWatch.getTime() / 1000.0)));
+                Platform.runLater(() ->timeLabel.setText(String.valueOf(stopWatch.getTime() / 1000.0)+ " s"));
             }
         }, 0L, 10L);
 
